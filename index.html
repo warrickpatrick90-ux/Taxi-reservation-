@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f3f1e9" />
+    <title>Taxi Reservation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Taxi Reservation home">
+        <span class="brand-mark" aria-hidden="true">T</span>
+        <span>Taxi Reservation</span>
+      </a>
+      <span class="local-note"><span class="live-dot"></span> Around Douala, every day</span>
+    </header>
+
+    <main id="home">
+      <section class="booking-layout" aria-labelledby="page-title">
+        <div class="booking-panel">
+          <p class="eyebrow">A RIDE AROUND THE CITY</p>
+          <h1 id="page-title">Where are you<br /><span>heading?</span></h1>
+          <p class="intro">Choose your quarters, add a landmark, and set your time. Simple.</p>
+
+          <form id="booking-form">
+            <div class="route-fields">
+              <div class="field">
+                <span>Pickup quarter</span>
+                <select name="pickupArea" id="pickup-area" required>
+                  <option value="">Choose a quarter</option>
+                </select>
+                <input class="other-area-input" id="pickup-other" name="pickupOther" type="text" placeholder="Type the pickup area" hidden />
+              </div>
+              <div class="field">
+                <span>Drop-off quarter</span>
+                <select name="dropoffArea" id="dropoff-area" required>
+                  <option value="">Choose a quarter</option>
+                </select>
+                <input class="other-area-input" id="dropoff-other" name="dropoffOther" type="text" placeholder="Type the drop-off area" hidden />
+              </div>
+            </div>
+
+            <div class="landmark-fields">
+              <label class="field">
+                <span>Pickup landmark <span class="optional">(optional)</span></span>
+                <input name="pickupLandmark" type="text" placeholder="Near the pharmacy, market, gate..." autocomplete="street-address" />
+              </label>
+              <label class="field">
+                <span>Drop-off landmark <span class="optional">(optional)</span></span>
+                <input name="dropoffLandmark" type="text" placeholder="A nearby landmark or street" />
+              </label>
+            </div>
+
+            <div class="details-fields">
+              <label class="field">
+                <span>Your name</span>
+                <input name="passengerName" type="text" placeholder="Name for the booking" autocomplete="name" required />
+              </label>
+              <label class="field">
+                <span>Phone number</span>
+                <input name="phone" type="tel" placeholder="Your number" autocomplete="tel" inputmode="tel" required />
+              </label>
+            </div>
+
+            <div class="details-fields">
+              <label class="field">
+                <span>Pickup date</span>
+                <input name="date" type="date" required />
+              </label>
+              <label class="field">
+                <span>Pickup time</span>
+                <input name="time" type="time" required />
+              </label>
+            </div>
+
+            <button class="reserve-button" type="submit">
+              <span>Review my ride</span>
+              <span class="button-arrow" aria-hidden="true">&#8594;</span>
+            </button>
+          </form>
+          <p class="form-note">This is a front-end demo. It prepares your booking details but does not contact a driver yet.</p>
+        </div>
+
+        <aside class="city-panel" aria-label="Douala city view">
+          <div class="panel-topline"><span>MADE FOR DOUALA</span><span class="panel-spark" aria-hidden="true">&#10022;</span></div>
+          <div class="panel-caption">
+            <span class="caption-label">FROM BONABÉRI TO BONAPRISO</span>
+            <p>We know the<br />way around.</p>
+            <span class="caption-rule"></span>
+          </div>
+          <div class="panel-bottomline"><span>YOUR CITY, YOUR RIDE</span><span>DOUALA · CM</span></div>
+        </aside>
+
+        <section class="booking-result" id="booking-result" aria-live="polite" hidden>
+          <div class="result-heading">
+            <span class="result-check" aria-hidden="true">&#10003;</span>
+            <div>
+              <p class="eyebrow">YOUR RIDE DETAILS</p>
+              <h2>Booking preview</h2>
+            </div>
+          </div>
+          <dl class="result-details">
+            <div><dt>Pickup</dt><dd id="result-pickup"></dd></div>
+            <div><dt>Drop-off</dt><dd id="result-dropoff"></dd></div>
+            <div><dt>Passenger</dt><dd id="result-passenger"></dd></div>
+            <div><dt>When</dt><dd id="result-time"></dd></div>
+          </dl>
+          <p class="result-note">Keep these details handy. Driver contact and live reservations can be added when the site is connected to a booking service.</p>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>TAXI RESERVATION</span>
+      <span>Make the city your own.</span>
+    </footer>
+  </body>
+</html>
